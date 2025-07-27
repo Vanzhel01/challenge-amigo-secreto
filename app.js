@@ -7,11 +7,21 @@ function agregarAmigo(){
     //condicional para verificar que es un dato valido y no uno en blanco
     if(amigo!=""){
         listaAmigos.push(amigo);
-        
+        actualizarLista();
     }
     else{
         alert("Por favor inserte un nombre");
     }  
     //console.log(listaAmigos);
 }
-
+function actualizarLista(){
+let valoresListaAmigos=listaAmigos.values();
+        document.getElementById("listaAmigos").innerHTML="";
+        for(let nombre of valoresListaAmigos){
+            var lista=document.getElementById("listaAmigos");
+            var li=document.createElement("li");
+            li.textContent=nombre;
+            lista.appendChild(li);
+            document.getElementById("amigo").value="";
+        } 
+}
