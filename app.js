@@ -1,5 +1,6 @@
 // Creacion de la Lista amigos
 let listaAmigos=[];
+
 // Function para agregar amigos
 function agregarAmigo(){
     //guarda el dato del elemento html en la variable amigo
@@ -14,14 +15,33 @@ function agregarAmigo(){
     }  
     //console.log(listaAmigos);
 }
+//function para actualizar la lista cada vez que se requiera
 function actualizarLista(){
-let valoresListaAmigos=listaAmigos.values();
+var valoresListaAmigos=listaAmigos.values();
+        //limpiando la lista
         document.getElementById("listaAmigos").innerHTML="";
-        for(let nombre of valoresListaAmigos){
+        //añadiendo a la lista con los valores nuevos del array
+        for(var nombre of valoresListaAmigos){
             var lista=document.getElementById("listaAmigos");
             var li=document.createElement("li");
             li.textContent=nombre;
             lista.appendChild(li);
             document.getElementById("amigo").value="";
-        } 
+        }
+        
 }
+//function que se ejecutara al click del boton sortear amigo
+function sortearAmigo(){
+    //condicional para verificar que la lista tenga + de 2 nombres
+    if(listaAmigos.length>1){
+        //generacion del nombre aleatorio
+        var numero=parseInt(Math.floor(Math.random()*listaAmigos.length));
+        var nombreElegido=listaAmigos[numero];
+        document.getElementById("resultado").innerHTML=nombreElegido;   
+    }
+    else{
+        alert("Por favor añada mas de 2 nombres a la lista antes de empezar");
+    }
+    
+}
+
