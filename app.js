@@ -37,7 +37,7 @@ function sortearAmigo(){
         //generacion del nombre aleatorio
         var numero=parseInt(Math.floor(Math.random()*listaAmigos.length));
         var nombreElegido=listaAmigos[numero];
-        document.getElementById("resultado").innerHTML=nombreElegido;   
+        document.getElementById("resultado").innerHTML=`El amigo seleccionado es: ${nombreElegido}`;   
     }
     else{
         alert("Por favor añada mas de 2 nombres a la lista antes de empezar");
