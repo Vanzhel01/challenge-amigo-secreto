@@ -41,7 +41,12 @@ function sortearAmigo(){
     }
     else{
         alert("Por favor añada mas de 2 nombres a la lista antes de empezar");
-    }
-    
+    }  
+}
+
+function reiniciar(){
+    listaAmigos=[];
+    document.getElementById("listaAmigos").innerHTML=""
+    document.getElementById("resultado").innerHTML=""
 }
 
