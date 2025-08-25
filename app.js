@@ -24,9 +24,17 @@ var valoresListaAmigos=listaAmigos.values();
         for(var nombre of valoresListaAmigos){
             var lista=document.getElementById("listaAmigos");
             var li=document.createElement("li");
+            li.classList.add("li");
             li.textContent=nombre;
             lista.appendChild(li);
+            var botonEliminar=document.createElement("button");
+            botonEliminar.classList.add("eliminar");
+            botonEliminar.textContent="Eliminar";
+            li.appendChild(botonEliminar);
             document.getElementById("amigo").value="";
+            botonEliminar.addEventListener("click", function() {
+            eliminar(this);
+            });
         }
         
 }
@@ -42,8 +50,16 @@ function sortearAmigo(){
     else{
         alert("Por favor añada mas de 2 nombres a la lista antes de empezar");
     }  
+}   
+function eliminar(boton){
+    boton.parentNode.remove();
+    let nombreEliminar=boton.parentNode.textContent;
+    nombreEliminar=nombreEliminar.replace("Eliminar","");
+    let id=listaAmigos.indexOf(nombreEliminar);
+    listaAmigos.splice(id,1);
+    console.log(listaAmigos);  
 }
-
+//function para limpiar reiniciar todo el contenido
 function reiniciar(){
     listaAmigos=[];
     document.getElementById("listaAmigos").innerHTML=""
